@@ -119,9 +119,12 @@ def game_hash
   }
 end
 
-def num_points_scored(name)
-	 return num_points_scored_raw(game_hash[:home][:players],name) if num_points_scored_raw(game_hash[:home][:players],name)
-	 return num_points_scored_raw(game_hash[:away][:players],name) if num_points_scored_raw(game_hash[:away][:players],name)
+def num_points_scored(player_n)
+  game_hash.each do |home_away, keys|
+    keys[:players].each do |player|
+      return player[:points] if player[:player_name] == player_n
+    end
+  end
 end
 
 
