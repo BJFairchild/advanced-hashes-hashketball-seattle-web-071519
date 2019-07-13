@@ -119,9 +119,10 @@ def game_hash
   }
 end
 
-def num_points_scored(player_n)
-   player_stats(player_n)[:points]
- end
+def num_points_scored(name)
+	 return num_points_scored_raw(game_hash[:home][:players],name) if num_points_scored_raw(game_hash[:home][:players],name)
+	 return num_points_scored_raw(game_hash[:away][:players],name) if num_points_scored_raw(game_hash[:away][:players],name)
+end
 
 
  def shoe_size(player_name)
